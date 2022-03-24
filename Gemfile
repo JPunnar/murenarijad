@@ -11,6 +11,8 @@ gem "sprockets-rails"
 
 gem 'pg'
 gem 'devise'
+gem 'bootstrap'
+gem "aws-sdk-s3", require: false
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
