@@ -16,6 +16,7 @@ class PodcastsController < ApplicationController
 
   def show
     @podcast = Podcast.find(params[:id])
+    @podcast.recording.url if Rails.env.production? && @podcast.recording.persisted?
   end
 
   private
