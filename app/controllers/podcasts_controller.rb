@@ -1,6 +1,10 @@
 class PodcastsController < ApplicationController
   before_action :authenticate_admin!, except: [:index, :show]
 
+  before_action do
+    ActiveStorage::Current.host = request.base_url if Rails.env.development?
+  end
+
   def index
     @podcasts = Podcast.all
   end
@@ -16,7 +20,6 @@ class PodcastsController < ApplicationController
 
   def show
     @podcast = Podcast.find(params[:id])
-    @podcast.recording.url if Rails.env.production? && @podcast.recording.persisted?
   end
 
   private
