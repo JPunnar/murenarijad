@@ -18,7 +18,9 @@
         <strong>Audiofail: </strong>
         <% if @podcast.recording.persisted? %>
           <div class='audio-player'>
-            <audio src=<%= Rails.env.production? ? @podcast.recording.url : Rails.application.routes.url_helpers.rails_blob_path(@podcast.recording, only_path: true) %> controls></audio>
+            <audio src=<%= Rails.env.production? ? @podcast.recording.url : Rails.application.routes.url_helpers.rails_blob_path(@podcast.recording, only_path: true) %>
+              controls autoplay>
+            </audio>
           </div>
         <% else %>
           -
