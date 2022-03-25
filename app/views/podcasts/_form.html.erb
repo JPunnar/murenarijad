@@ -1,0 +1,49 @@
+<br>
+
+<%= form_for @podcast, html: { autocomplete: "off" } do |f| %>
+  <% if f.object.errors.any? %>
+    <ul class="alert alert-danger">
+      <% f.object.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+<div class="row">
+    <div class="col-4">
+      <div class="form-group">
+
+        <div class="form-inline input-group-sm">
+          <%= f.label "Episoodi number:" %>
+          <%= f.number_field :number, class: "form-control ml-auto", required: true %>
+        </div>
+
+        <br>
+
+        <div class="form-inline input-group-sm">
+          <%= f.label "Pealkiri:" %>
+          <%= f.text_field :title, class: "form-control ml-auto", required: true %>
+        </div>
+
+        <br>
+
+        <div class="form-inline input-group-sm">
+          <%= f.label "Kirjeldus:" %>
+          <%= f.text_area :description, class: "form-control ml-auto" %>
+        </div>
+
+        <br>
+
+        <div class="form-inline input-group-sm">
+          <%= f.label "Audiofail:" %>
+          <%= f.file_field :recording, class: "form-select ml-auto" %>
+        </div>
+      </div>
+
+      <br>
+      <%= f.submit "Lae üles", class: "btn btn-secondary float-right" %>
+      <br>
+      <br>
+      <br>
+    </div>
+  <% end %>
+</div>

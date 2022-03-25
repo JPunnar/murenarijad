@@ -12,9 +12,17 @@
       </div>
 
       <% if current_admin %>
-        <%= link_to "Logi välja", destroy_admin_session_path, method: :delete, class: "nav-link ms-auto log-link" %>
+        <div class="navbar-nav">
+          <a class="nav-link <%= 'active' if controller_name == 'podcasts' %>" aria-current="page" href="<%= new_podcast_path %>">
+            Lae üles
+          </a>
+        </div>
+      <% end %>
+
+      <% if current_admin %>
+        <%= button_to "Logi välja", destroy_admin_session_path, method: :delete, class: "ms-auto log-link" %>
       <% else %>
-        <%= link_to 'Admin', root_path, class: "nav-link ms-auto log-link" %>
+        <%= link_to 'Admin', new_admin_session_path, class: "nav-link ms-auto log-link" %>
       <% end %>
     </div>
   </div>

@@ -1,0 +1,68 @@
+<div class="container">
+  <br>
+  <%= link_to root_path, class: 'btn btn-secondary btn-m' do %>
+    Tagasi
+  <% end %>
+
+
+  <br>
+  <br>
+  <h4>Episoodi nr <%= @item.id %></h4>
+  <hr>
+  <br>
+  <div class="row">
+    <div class="col-5">
+      <div class="custom-row">
+        <strong>Paigaldise tüüp: </strong> <div class="val"> <%= @item.install_type.presence || '-' %> </div>
+        <br>
+      </div>
+
+      <div class="custom-row">
+        <strong>Tellija: </strong> <div class="val"> <%= @item.client.presence || '-' %> </div>
+        <br>
+      </div>
+
+      <div class="custom-row">
+        <strong>Aadress: </strong> <div class="val"> <%= link_to(@item.address.presence || '-', "https://maps.google.com/?q=#{@item.address}", target: :_blank, rel: 'nofollow') %> </div>
+        <br>
+      </div>
+
+      <div class="custom-row">
+        <strong>Tellimuse sisestamise kp: </strong> <div class="val"> <%= @item.created_at&.strftime('%d.%m.%Y') %> </div>
+        <br>
+      </div>
+
+      <div class="custom-row">
+        <strong>Pakkumise esitamise kp: </strong> <div class="val"> <%= @item.offer_date.presence ? @item.offer_date.strftime('%d.%m.%Y') : '-' %> </div>
+        <br>
+      </div>
+
+      <br>
+    </div>
+    <div class="col-1"></div>
+    <div class="col-6">
+
+      <div class="custom-row">
+        <strong>Email: </strong> <div class="val"><%= @item.email.presence || '-' %> </div>
+        <br>
+      </div>
+
+      <div class="custom-row">
+        <strong>Tel: </strong> <div class="val"><%= @item.phone.presence || '-' %> </div>
+        <br>
+      </div>
+
+      <div class="custom-row">
+        <strong>Hoone tüüp: </strong> <div class="val"> <%= @item.building_type.presence || '-' %> </div>
+        <br>
+      </div>
+
+      <div class="custom-row">
+        <strong>Märkused: </strong> <div class="val"> <%= @item.notes.presence || '-' %> </div>
+        <br>
+      </div>
+
+    </div>
+  </div>
+  <br>
+</div>
