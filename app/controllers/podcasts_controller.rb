@@ -11,7 +11,7 @@ class PodcastsController < ApplicationController
 
   def create
     podcast = Podcast.create(podcast_params)
-    redirect_to podcast
+    redirect_to podcasts_path
   end
 
   def show
