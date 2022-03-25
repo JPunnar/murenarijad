@@ -18,7 +18,7 @@
         <strong>Audiofail: </strong>
         <% if @podcast.recording.persisted? %>
           <div class='audio-player'>
-            <%= audio_tag(@podcast.recording.url, controls: true) %>
+            <%= audio_tag(@podcast.recording.url, controls: true, preload: :auto) %>
           </div>
         <% else %>
           -
