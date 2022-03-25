@@ -7,10 +7,14 @@
         <table class="table">
           <tr class="header-row" >
             <th>NR</th>
+            <th>Pealkiri</th>
+            <th>Kirjeldus</th>
           </tr>
           <% @podcasts.each do |podcast| %>
             <tr>
-              <td><strong><%= podcast.id %></strong></td>
+              <td><%= link_to podcast.number, podcast_path(podcast), class: 'episode-link btn btn-secondary' %></td>
+              <td><%= podcast.title %></td>
+              <td><%= podcast.description %></td>
             </tr>
           <% end %>
         </table>

@@ -15,11 +15,12 @@ class PodcastsController < ApplicationController
   end
 
   def show
+    @podcast = Podcast.find(params[:id])
   end
 
   private
 
   def podcast_params
-    params.require(:podcast).permit(:title, :description, :recording)
+    params.require(:podcast).permit(:title, :description, :number, :recording)
   end
 end
