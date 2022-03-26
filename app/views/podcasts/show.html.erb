@@ -15,6 +15,11 @@
       </div>
 
       <div class="custom-row">
+        <strong>Seda lehte on vaatatud: </strong> <div class="val"> <%= @podcast.view_count %> korda.</div>
+        <br>
+      </div>
+
+      <div class="custom-row">
         <strong>Audiofail: </strong>
         <% if @podcast.recording.persisted? %>
           <div class='audio-player'>

@@ -6,7 +6,7 @@ class PodcastsController < ApplicationController
   end
 
   def index
-    @podcasts = Podcast.all
+    @podcasts = Podcast.all.order(number: :desc)
   end
 
   def new
@@ -20,6 +20,7 @@ class PodcastsController < ApplicationController
 
   def show
     @podcast = Podcast.find(params[:id])
+    @podcast.increment!(:view_count)
   end
 
   private

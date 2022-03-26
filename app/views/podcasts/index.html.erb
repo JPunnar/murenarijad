@@ -9,12 +9,14 @@
             <th>NR</th>
             <th>Pealkiri</th>
             <th>Kirjeldus</th>
+            <th>Vaatamisi</th>
           </tr>
           <% @podcasts.each do |podcast| %>
             <tr>
               <td><%= link_to podcast.number, podcast_path(podcast), class: 'episode-link btn btn-secondary' %></td>
               <td><%= podcast.title %></td>
               <td><%= podcast.description %></td>
+              <td><%= podcast.view_count %></td>
             </tr>
           <% end %>
         </table>
